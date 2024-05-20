@@ -20440,7 +20440,7 @@ PrefabInstance:
     - target: {fileID: 1347058434962519537, guid: 235c4e328a7642b4da28f8695ef75572, type: 3}
       propertyPath: _doorCollider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5913709382645124273}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20465,6 +20465,11 @@ Transform:
 --- !u!1 &1991126725705188761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 445548244057618260, guid: 235c4e328a7642b4da28f8695ef75572, type: 3}
+  m_PrefabInstance: {fileID: 2129922185285579469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &5913709382645124273 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5737224910256651900, guid: 235c4e328a7642b4da28f8695ef75572, type: 3}
   m_PrefabInstance: {fileID: 2129922185285579469}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6774445612546055632

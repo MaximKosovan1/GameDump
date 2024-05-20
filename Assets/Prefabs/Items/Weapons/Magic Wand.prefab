@@ -105,6 +105,7 @@ MonoBehaviour:
   _firePoint: {fileID: 1201825444571364288}
   _weaponProjectiles:
   - {fileID: 5069948055136763565, guid: 1bd4ba1f2dc511b48ad984e872ae259b, type: 3}
+  - {fileID: 5069948055136763565, guid: d53f6d6ca9d1b7844bea4ab3e73b98a8, type: 3}
 --- !u!61 &3925840449435623737
 BoxCollider2D:
   m_ObjectHideFlags: 0

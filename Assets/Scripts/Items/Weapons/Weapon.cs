@@ -63,8 +63,10 @@ public class Weapon : Item, IInteractable
         {
             if (value < 0)
                 throw new ApplicationException("Current projectile cannot be less than zero!!!");
-            else if (value > (_weaponProjectiles.Length - 1))
+            else if (value > _weaponProjectiles.Length - 1)
                 _currentProjectile = 0;
+            else
+                _currentProjectile = value;
         }
     }
 
