@@ -4,7 +4,7 @@ using UnityEngine;
 public  class Enemy : Entity
 {
     private SimpleFlash _flashEffect;
-
+    public event Action<Enemy> OnDeath;
     private void Awake()
     {
         _flashEffect = GetComponent<SimpleFlash>();
@@ -23,6 +23,7 @@ public  class Enemy : Entity
 
     private void ProcessDeath()
     {
+        OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 }

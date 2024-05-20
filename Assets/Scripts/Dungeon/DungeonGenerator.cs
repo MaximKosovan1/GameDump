@@ -8,18 +8,19 @@ public class DungeonGenerator : MonoBehaviour
     [Header("Rooms")]
     [SerializeField] private GameObject[] _corridor;
     [SerializeField] private GameObject _spawnRoom;
-    [SerializeField] private GameObject _preBossRoom;
-    [SerializeField] private GameObject _bossRoom;
-    [SerializeField] private GameObject _exitRoom;
+    [SerializeField] private GameObject[] _bossRoom;
     [Space(20)] 
     [SerializeField] private GameObject[] _genericRooms;
+    [SerializeField] private GameObject[] _treasureRooms;
 
     [Header("Generate configuration")] 
-    [SerializeField, Min(6)] private int _maxRoomsCount = 6;
-    [SerializeField, Min(6)] private int _minRoomsCount = 6;
-    [SerializeField, Min(3)] private int _corridorsLength = 5;
+    [SerializeField, Min(3)] private int _maxRoomsCount = 6;
+    [SerializeField, Min(2)] private int _minRoomsCount = 6;
+    [SerializeField, Min(1)] private int _maxTreasureRooms = 2;
 
     private Queue<GameObject> _roomsForGeneration = new Queue<GameObject>();
+    private List<GameObject> _generatedRooms = new List<GameObject>();
+    
     private void Awake()
     {
         GenerateDungeon();
@@ -31,8 +32,17 @@ public class DungeonGenerator : MonoBehaviour
         int genericRoomsCount = Random.Range(_minRoomsCount, _maxRoomsCount + 1);
         while (genericRoomsCount > 0)
         {
-            GenerateRoomRoots(_roomsForGeneration.Peek());
-            _roomsForGeneration.Dequeue();
+            if (genericRoomsCount > 1)
+            {
+                GenerateRoomRoots(_roomsForGeneration.Peek());
+                _roomsForGeneration.Dequeue();
+            }
+            else
+            {
+                GenerateRoomRoots(_roomsForGeneration.Peek(), true);
+                _roomsForGeneration.Dequeue();
+            }
+
             genericRoomsCount--;
         }
     }
@@ -42,18 +52,44 @@ public class DungeonGenerator : MonoBehaviour
         var spawnRoom = Instantiate(_spawnRoom, Vector2.zero, Quaternion.identity);
         GenerateRoomRoots(spawnRoom);
     }
+
     private bool _isRoomGenerated;
-    private void GenerateRoomRoots(GameObject originRoom)
+
+    private void GenerateRoomRoots(GameObject originRoom, bool generateBossRoom = false)
     {
         List<GameObject> corridors = GenerateCorridors(originRoom);
-            foreach (var corridor in corridors)
+        foreach (var corridor in corridors)
+        {
+            _isRoomGenerated = false;
+            if (generateBossRoom)
             {
-                _isRoomGenerated = false;
                 while (_isRoomGenerated == false)
                 {
-                    GenerateRoomFromCorridor(corridor, GetRandomRoom(_genericRooms));
+                    GenerateRoomFromCorridor(corridor, GetRandomRoom(_bossRoom));
                 }
             }
+            else
+            {
+                float treasureRoomChance = Random.value;
+                bool isTreasureRoom = false;
+                if (_maxTreasureRooms > 0 && treasureRoomChance < 0.25f)
+                {
+                    isTreasureRoom = true;
+                    _maxTreasureRooms--;
+                }
+                while (_isRoomGenerated == false)
+                {
+                    if (isTreasureRoom)
+                    {
+                        GenerateRoomFromCorridor(corridor, GetRandomRoom(_treasureRooms));
+                    }
+                    else
+                    {
+                        GenerateRoomFromCorridor(corridor, GetRandomRoom(_genericRooms));
+                    }
+                }
+            }
+        }
     }
 
     private GameObject GetRandomRoom(GameObject[] rooms)
@@ -66,10 +102,11 @@ public class DungeonGenerator : MonoBehaviour
         Vector2 position = doorPoint.transform.position + 
                            (generatedRoom.Doors[index].transform.position * (-1));
         generatedRoom.transform.position = position;
-        doorPoint._isAvailable = false;
-        generatedRoom.Doors[index]._isAvailable = false;
+        doorPoint.IsAvailable = false;
+        generatedRoom.Doors[index].IsAvailable = false;
     }
-    private bool HasNedeedDoor(DoorDirection neededDoorDirection, Room room)
+
+    private bool HasNeededDoor(DoorDirection neededDoorDirection, Room room)
     {
         foreach (var door in room.Doors)
         {
@@ -77,6 +114,7 @@ public class DungeonGenerator : MonoBehaviour
         }
         return false;
     }
+
     private void GenerateRoomFromCorridor(GameObject originCorridor, GameObject roomToGenerate)
     {
         var originalCorridor = originCorridor.GetComponent<Room>();
@@ -84,7 +122,7 @@ public class DungeonGenerator : MonoBehaviour
         int i;
         for (i = 0; i < originalCorridor.Doors.Length; i++)
         {
-            if (originalCorridor.Doors[i]._isAvailable)
+            if (originalCorridor.Doors[i].IsAvailable)
             {
                 availableDoor = originalCorridor.Doors[i];
                 break;
@@ -98,11 +136,12 @@ public class DungeonGenerator : MonoBehaviour
             if (generatedRoom.Doors[j]._doorDirection == neededNextDoorDirection)
             {
                 AlignRoomPosition(availableDoor, generatedRoom, j);
-                generatedRoom.Doors[j]._isAvailable = false;
-                originalCorridor.Doors[i]._isAvailable = false;
+                generatedRoom.Doors[j].IsAvailable = false;
+                originalCorridor.Doors[i].IsAvailable = false;
                 _isRoomGenerated = true;
 
                 _roomsForGeneration.Enqueue(generatedRoom.gameObject);
+                _generatedRooms.Add(generatedRoom.gameObject);
                 return;
             }
         }
@@ -110,17 +149,16 @@ public class DungeonGenerator : MonoBehaviour
         Destroy(generatedRoom.gameObject);
     }
     
-
     private List<GameObject> GenerateCorridors(GameObject originRoom)
     {
         List<GameObject> generatedCorridors = new List<GameObject>();
         var originalRoom = originRoom.GetComponent<Room>();
         for (int i = 0; i < originalRoom.Doors.Length; i++)
         {
-            if(originalRoom.Doors[i]._isAvailable == false) continue;
+            if(originalRoom.Doors[i].IsAvailable == false) continue;
             DoorDirection neededNextDoorDirection = originalRoom.Doors[i].GetOppositeDirection();
             var randomCorridor = GetRandomRoom(_corridor).GetComponent<Room>();
-            while (HasNedeedDoor(neededNextDoorDirection, randomCorridor) == false)
+            while (HasNeededDoor(neededNextDoorDirection, randomCorridor) == false)
             {
                 randomCorridor = GetRandomRoom(_corridor).GetComponent<Room>();
             }
@@ -131,8 +169,8 @@ public class DungeonGenerator : MonoBehaviour
                 if (generatedCorridor.Doors[j]._doorDirection == neededNextDoorDirection)
                 {
                     AlignRoomPosition(originalRoom.Doors[i], generatedCorridor, j);
-                    generatedCorridor.Doors[j]._isAvailable = false;
-                    originalRoom.Doors[i]._isAvailable = false;
+                    generatedCorridor.Doors[j].IsAvailable = false;
+                    originalRoom.Doors[i].IsAvailable = false;
                     generatedCorridors.Add(generatedCorridor.gameObject);
                 }
                 else

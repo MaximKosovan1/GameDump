@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    [field: SerializeField] protected int HealthPoints {get; set;} = 1;
-    [field: SerializeField] protected float WalkSpeed {get; set;} = 1;
-    [field: SerializeField] protected Weapon CurrentWeapon { get; set; }
+    [field: SerializeField] public int HealthPoints {get; set;} = 1;
+    [field: SerializeField] public float WalkSpeed {get; set;} = 1;
+    [field: SerializeField] public Weapon CurrentWeapon { get; set; }
 }

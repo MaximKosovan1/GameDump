@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8592602ddb064cba4c0bd51f3b209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <HealthPoints>k__BackingField: 20
+  <HealthPoints>k__BackingField: 2
   <WalkSpeed>k__BackingField: 1
   <CurrentWeapon>k__BackingField: {fileID: 0}
 --- !u!114 &7959832548209075573

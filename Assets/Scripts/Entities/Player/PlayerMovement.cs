@@ -37,12 +37,10 @@ public class PlayerMovement
         }
         _playerHand.transform.position = direction;
     }
-    public void AttachWeaponToHand(Weapon weapon)
-    {
-            weapon.transform.SetParent(_playerHand.transform);
-    }
+    
     public void ProcessWeaponRotation(Weapon weapon)
     {
+        if (weapon == null) return;
         var mouseScreenPos = Input.mousePosition;
         var startingScreenPos = _playerCamera.WorldToScreenPoint(_playerTransform.position);
         mouseScreenPos.x -= startingScreenPos.x;
