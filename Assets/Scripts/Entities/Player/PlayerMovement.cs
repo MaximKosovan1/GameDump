@@ -20,11 +20,15 @@ public class PlayerMovement
     }
     public void ProcessPlayerMovement(float speed)
     {
+        if (Player._isPaused) return;
+
         Vector2 direction = _playerInput.Player.Move.ReadValue<Vector2>();
         _playerRigidbody2D.velocity = direction * speed;
     }
     public void ProcessHandMovement(float smoothness, float threshold)
     {
+        if (Player._isPaused) return;
+
         Vector3 referencePosition = _playerCamera.ScreenToWorldPoint(Input.mousePosition);
         referencePosition = Vector3.Lerp(_playerHand.transform.position, 
             referencePosition, smoothness * Time.deltaTime);
@@ -40,6 +44,8 @@ public class PlayerMovement
     
     public void ProcessWeaponRotation(Weapon weapon)
     {
+        if (Player._isPaused) return;
+
         if (weapon == null) return;
         var mouseScreenPos = Input.mousePosition;
         var startingScreenPos = _playerCamera.WorldToScreenPoint(_playerTransform.position);
@@ -50,6 +56,8 @@ public class PlayerMovement
     }
     public void ProcessCameraMovement(float cameraThreshold)
     {
+        if (Player._isPaused) return;
+
         Vector3 mousePosition = _playerCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePosition - _playerTransform.position;
         if (direction.magnitude > cameraThreshold)

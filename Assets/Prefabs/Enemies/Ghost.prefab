@@ -50,9 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8592602ddb064cba4c0bd51f3b209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <HealthPoints>k__BackingField: 2
-  <WalkSpeed>k__BackingField: 8
+  <WalkSpeed>k__BackingField: 6
   <CurrentWeapon>k__BackingField: {fileID: 0}
+  walkSpeed: 3.5
+  damage: 1
+  attackCooldown: 2
 --- !u!114 &7959832548209075573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +84,7 @@ MonoBehaviour:
   _initialRotationStrength: 10
   _minRotationStrength: 1
   _rotationAcceleration: 2
-  _acceleration: 2
+  _acceleration: 5
   _rotationAngle: 20
 --- !u!212 &5715699479862650121
 SpriteRenderer:
