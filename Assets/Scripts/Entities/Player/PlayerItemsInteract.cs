@@ -4,25 +4,26 @@ using UnityEngine.InputSystem;
 public class PlayerItemsInteract
 {
     private PlayerInputs _playerInput;
-    private Weapon _currentWeapon;
+    private Weapon _currentInteractWeapon;
     
     public PlayerItemsInteract(Weapon currentWeapon)
     {
         _playerInput = Player._playerInputsAction;
-        UpdateCurrentWeapon(currentWeapon);
+        UpdateCurrentWeapon(currentWeapon, currentWeapon);
         _playerInput.Player.Attack.performed += UseWeapon;
     }
     
     private void UseWeapon(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && _currentWeapon != null)
+        if (Player._isPaused) return;
+        if (ctx.performed && _currentInteractWeapon != null)
         {
-            _currentWeapon.Attack();
+            _currentInteractWeapon.Attack();
         }
     }
 
-    public void UpdateCurrentWeapon(Weapon newWeapon)
+    public void UpdateCurrentWeapon(Weapon oldWeapon, Weapon newWeapon)
     {
-        _currentWeapon = newWeapon;
+        _currentInteractWeapon = newWeapon;
     }
 }

@@ -19,6 +19,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
+        if (Player._isPaused) return;
+
         CheckForInteractable();
     }
 
@@ -53,6 +55,8 @@ public class PlayerInteract : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext ctx)
     {
+        if (Player._isPaused) return;
+
         foreach (var interactable in _currentInteractables)
         {
             if (interactable.IsInteractable)
