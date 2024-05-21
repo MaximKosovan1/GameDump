@@ -1,5 +1,3 @@
-using System;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
@@ -16,14 +14,16 @@ public class Player : Entity
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private float _cameraThreshhold = 5f;
 
-    [Header("Hand movement")] 
+    [Header("Hand movement")]
     [SerializeField] private GameObject _playerHand;
     [SerializeField] private float _smoothness = 10f;
     [SerializeField] private float _threshold = 2f;
 
-    [Header("Interaction")] 
+    [Header("Interaction")]
     [SerializeField] private float _radius = 1f;
     [SerializeField] private LayerMask _interactableLayer;
+
+    private MenuManager _menuManager;
 
     private void Awake()
     {
@@ -36,6 +36,8 @@ public class Player : Entity
         _playerInteract.Initialize(_interactableLayer, _radius);
         _playerItemsInteract = new PlayerItemsInteract(CurrentWeapon);
         OnWeaponChanged += _playerItemsInteract.UpdateCurrentWeapon;
+
+        _menuManager = FindObjectOfType<MenuManager>();
     }
 
     public void Update()
@@ -72,7 +74,7 @@ public class Player : Entity
 
     private void ProcessDeath()
     {
-        throw new NotImplementedException();
+        _menuManager.ShowDeathMenu();
     }
 
     public static void SetPaused(bool isPaused)

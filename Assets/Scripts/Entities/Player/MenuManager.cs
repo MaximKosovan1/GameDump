@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject settingsMenuUI;
+    [SerializeField] private GameObject deathMenuUI;
     private PlayerInputs _playerInput;
 
     private bool isPaused = false;
@@ -23,6 +24,7 @@ public class MenuManager : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(false);
+        deathMenuUI.SetActive(false);
         if (_playerInput != null)
         {
             _playerInput.Player.Pause.performed += OnPausePerformed;
@@ -47,6 +49,8 @@ public class MenuManager : MonoBehaviour
 
     public void TogglePause()
     {
+        if (deathMenuUI.activeSelf) return;
+
         isPaused = !isPaused;
 
         if (isPaused)
@@ -73,7 +77,6 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Time.timeScale = 1f;
         Application.Quit();
     }
 
@@ -87,5 +90,12 @@ public class MenuManager : MonoBehaviour
     {
         settingsMenuUI.SetActive(false);
         pauseMenuUI.SetActive(true);
+    }
+
+    public void ShowDeathMenu()
+    {
+        Time.timeScale = 0f;
+        Player.SetPaused(true);
+        deathMenuUI.SetActive(true);
     }
 }
