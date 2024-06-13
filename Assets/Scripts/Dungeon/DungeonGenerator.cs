@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class DungeonGenerator : MonoBehaviour
@@ -14,16 +15,38 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField] private GameObject[] _treasureRooms;
 
     [Header("Generate configuration")] 
-    [SerializeField, Min(3)] private int _maxRoomsCount = 6;
+    [SerializeField, Min(3)] private int _floorCount = 3;
+    [SerializeField, Min(3)] private int _maxRoomsCount = 5;
     [SerializeField, Min(2)] private int _minRoomsCount = 6;
     [SerializeField, Min(1)] private int _maxTreasureRooms = 2;
-
+    [SerializeField] private UnityEvent _onDungeonExit;
     private Queue<GameObject> _roomsForGeneration = new Queue<GameObject>();
     private List<GameObject> _generatedRooms = new List<GameObject>();
-    
+    private List<GameObject> _dungeonRooms = new List<GameObject>();
     private void Awake()
     {
         GenerateDungeon();
+        _floorCount--;
+    }
+
+    public void RegenerateDungeon()
+    {
+        if (_floorCount <= 0)
+        {
+            _onDungeonExit?.Invoke();
+            return;
+        }
+        _roomsForGeneration.Clear();
+        _generatedRooms.Clear();
+        for (int i = 0; i < _dungeonRooms.Count; i++)
+        {
+            Destroy(_dungeonRooms[i].gameObject);
+        }
+        _dungeonRooms.Clear();
+        GenerateDungeon();
+        var player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = Vector2.zero;
+        _floorCount--;
     }
 
     public void GenerateDungeon()   
@@ -50,6 +73,7 @@ public class DungeonGenerator : MonoBehaviour
     private void SetupSpawnRoom()
     { 
         var spawnRoom = Instantiate(_spawnRoom, Vector2.zero, Quaternion.identity);
+        _dungeonRooms.Add(spawnRoom);
         GenerateRoomRoots(spawnRoom);
     }
 
@@ -141,6 +165,7 @@ public class DungeonGenerator : MonoBehaviour
                 _isRoomGenerated = true;
 
                 _roomsForGeneration.Enqueue(generatedRoom.gameObject);
+                _dungeonRooms.Add(generatedRoom.gameObject);
                 _generatedRooms.Add(generatedRoom.gameObject);
                 return;
             }
@@ -172,6 +197,7 @@ public class DungeonGenerator : MonoBehaviour
                     generatedCorridor.Doors[j].IsAvailable = false;
                     originalRoom.Doors[i].IsAvailable = false;
                     generatedCorridors.Add(generatedCorridor.gameObject);
+                    _dungeonRooms.Add(generatedCorridor.gameObject);
                 }
                 else
                 {

@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject settingsMenuUI;
     [SerializeField] private GameObject deathMenuUI;
+    [SerializeField] private string _sceneToLoad;
     private PlayerInputs _playerInput;
 
     private bool isPaused = false;
@@ -67,7 +68,10 @@ public class MenuManager : MonoBehaviour
             settingsMenuUI.SetActive(false);
         }
     }
-
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(_sceneToLoad);
+    }
     public void ReloadCurrentScene()
     {
         Time.timeScale = 1f;

@@ -71,7 +71,7 @@ public class Enemy : Entity
         _rigidbody.AddForce(forceDirection, ForceMode2D.Impulse);
     }
 
-    private void ProcessDeath()
+    public void ProcessDeath()
     {
         OnDeath?.Invoke(this);
         Destroy(gameObject);
