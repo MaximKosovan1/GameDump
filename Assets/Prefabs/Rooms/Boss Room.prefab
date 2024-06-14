@@ -20362,6 +20362,8 @@ GameObject:
   - component: {fileID: 6652913983708434441}
   - component: {fileID: 7459906788342492832}
   - component: {fileID: 7137439594164398286}
+  - component: {fileID: 6430227037867986965}
+  - component: {fileID: 1818286373806096031}
   m_Layer: 6
   m_Name: Boss Room
   m_TagString: Untagged
@@ -20413,6 +20415,89 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!61 &6430227037867986965
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165821126179571588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.8637333, y: -1.8508978}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 39.71463, y: 4.7017956}
+  m_EdgeRadius: 0
+--- !u!114 &1818286373806096031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165821126179571588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e420800963b8a4da21e506621c34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - spawnPoints:
+    - {x: 2, y: -2, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: -1, y: 2, z: 0}
+    - {x: 12, y: -2, z: 0}
+    - {x: 14, y: 0, z: 0}
+    - {x: 15, y: 2, z: 0}
+    enemieSpawnDelay: 0.2
+  - spawnPoints:
+    - {x: 7.02, y: -2, z: 0}
+    - {x: 18.7, y: 10.45, z: 0}
+    - {x: -2.74, y: 2.66, z: 0}
+    - {x: 11.4, y: 1.44, z: 0}
+    - {x: 18.2, y: 0, z: 0}
+    - {x: 15, y: 0.62, z: 0}
+    - {x: -4.7, y: 7.06, z: 0}
+    enemieSpawnDelay: 0.2
+  - spawnPoints:
+    - {x: 3.97, y: 8.57, z: 0}
+    - {x: 7.02, y: 3.03, z: 0}
+    - {x: 11.32, y: 6.45, z: 0}
+    enemieSpawnDelay: 0.2
+  enemyPool:
+  - {fileID: 1668997066174954197, guid: b68309519f50e3e45b2858de814e67d0, type: 3}
+  - {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
 --- !u!1001 &2009562937424074810
 PrefabInstance:
   m_ObjectHideFlags: 0

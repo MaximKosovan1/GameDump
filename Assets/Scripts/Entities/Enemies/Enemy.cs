@@ -11,7 +11,6 @@ public class Enemy : Entity
     private Rigidbody2D _rigidbody;
     private string _playerTag = "Player";
 
-    [SerializeField] private float walkSpeed = 3.5f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float attackCooldown = 2.0f; // Время перезарядки атаки
 
@@ -27,7 +26,7 @@ public class Enemy : Entity
 
     private void Update()
     {
-        _enemyMovement.Move(walkSpeed);
+        _enemyMovement.Move(WalkSpeed);
     }
 
     private void OnCollisionStay2D(Collision2D other)

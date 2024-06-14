@@ -13,7 +13,7 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject _doorBlocker;
     private bool _isLocked = false;
     
-    private void Awake()
+    private void Start()
     {
         _doorOpenAnimator = GetComponentInChildren<Animator>();
         IsOpen = _isOpen;
@@ -121,12 +121,12 @@ public class Door : MonoBehaviour
 
     public void Open()
     {
-        _doorCollider.enabled = false;
+        _doorCollider.isTrigger = true;
     }
 
     public void Close()
     {
-        _doorCollider.enabled = true;
+        _doorCollider.isTrigger = false;
     }
 }
 

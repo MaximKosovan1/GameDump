@@ -3,21 +3,19 @@ using UnityEngine.AI;
 
 public class DefaultMovement : MonoBehaviour, IMovable
 {
-    private NavMeshAgent _navMeshAgent;
     private Transform _playerTransform;
+    private Rigidbody2D _rigidbody2D;
 
     private void Awake()
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     public void Move(float speed)
     {
-        if (_playerTransform != null)
-        {
-            _navMeshAgent.speed = speed;
-            _navMeshAgent.SetDestination(_playerTransform.position);
-        }
+        Vector2 directionToPlayer = (_playerTransform.position - transform.position).normalized;
+        Vector2 velocity = directionToPlayer * speed;
+        _rigidbody2D.MovePosition((Vector2)transform.position + velocity * Time.deltaTime);
     }
 }

@@ -9648,15 +9648,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - WaveName: Creepy ghosts
-    Enemies:
-    - Position: {x: -13, y: 0}
-      Enemy: {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
-    - Position: {x: -11, y: -3}
-      Enemy: {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
-    - Position: {x: -13, y: -6}
-      Enemy: {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
+  - spawnPoints:
+    - {x: -9.33, y: -7.42, z: 0}
+    - {x: -9.33, y: 0, z: 0}
+    - {x: -4.9, y: -0.64, z: 0}
     enemieSpawnDelay: 0.25
+  - spawnPoints:
+    - {x: -0.74, y: -7.42, z: 0}
+    - {x: -0.42, y: 0, z: 0}
+    - {x: 9.27, y: -4.64, z: 0}
+    enemieSpawnDelay: 0.25
+  - spawnPoints:
+    - {x: -5.79, y: -7.42, z: 0}
+    - {x: 1.08, y: 1.02, z: 0}
+    - {x: 6.41, y: -4.88, z: 0}
+    enemieSpawnDelay: 0.25
+  enemyPool:
+  - {fileID: 1668997066174954197, guid: b68309519f50e3e45b2858de814e67d0, type: 3}
+  - {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
 --- !u!114 &7459906788342492832
 MonoBehaviour:
   m_ObjectHideFlags: 0

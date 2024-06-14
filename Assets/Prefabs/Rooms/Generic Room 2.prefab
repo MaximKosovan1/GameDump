@@ -15118,8 +15118,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6652913983708434441}
+  - component: {fileID: 8430040756773650216}
   - component: {fileID: 7459906788342492832}
   - component: {fileID: 7137439594164398286}
+  - component: {fileID: 4324973195816771502}
   m_Layer: 6
   m_Name: Generic Room 2
   m_TagString: Untagged
@@ -15145,6 +15147,39 @@ Transform:
   - {fileID: 7275311280430465855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8430040756773650216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165821126179571588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e420800963b8a4da21e506621c34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - spawnPoints:
+    - {x: 0.11, y: -8.79, z: 0}
+    - {x: -2.02, y: -8.79, z: 0}
+    - {x: 4.05, y: -11.06, z: 0}
+    - {x: -3.39, y: -11.09, z: 0}
+    - {x: 9.65, y: -5.5, z: 0}
+    - {x: 16.27, y: -11.26, z: 0}
+    enemieSpawnDelay: 0
+  - spawnPoints:
+    - {x: 6.13, y: -8.79, z: 0}
+    - {x: 7.75, y: -14.14, z: 0}
+    - {x: 14.91, y: -11.06, z: 0}
+    - {x: 14.9, y: -13.32, z: 0}
+    enemieSpawnDelay: 0
+  - spawnPoints:
+    - {x: 23.3, y: -11.48, z: 0}
+    enemieSpawnDelay: 0.25
+  enemyPool:
+  - {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
+  - {fileID: 1668997066174954197, guid: b68309519f50e3e45b2858de814e67d0, type: 3}
 --- !u!114 &7459906788342492832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15172,6 +15207,51 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!61 &4324973195816771502
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165821126179571588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.8924594, y: -8.934496}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 31.829842, y: 25.472748}
+  m_EdgeRadius: 0
 --- !u!1001 &7807144951679804307
 PrefabInstance:
   m_ObjectHideFlags: 0

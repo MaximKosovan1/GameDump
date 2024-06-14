@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5715699479862650121}
   - component: {fileID: 158889552660222858}
   - component: {fileID: 1020899752902310731}
-  - component: {fileID: 385296920092639966}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -51,10 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <WalkSpeed>k__BackingField: 6
-  <CurrentWeapon>k__BackingField: {fileID: 0}
-  walkSpeed: 3.5
   damage: 1
-  attackCooldown: 2
+  attackCooldown: 1
 --- !u!114 &7959832548209075573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,11 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd32d095b380b044ca97f7a4261534e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialRotationStrength: 10
-  _minRotationStrength: 1
   _rotationAcceleration: 2
-  _acceleration: 5
-  _rotationAngle: 20
+  _rotationStrength: 10
+  _minRotationStrength: 1
+  _acceleration: 1
 --- !u!212 &5715699479862650121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -210,25 +206,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.94563955}
   m_EdgeRadius: 0
---- !u!195 &385296920092639966
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6069093712309955542}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
