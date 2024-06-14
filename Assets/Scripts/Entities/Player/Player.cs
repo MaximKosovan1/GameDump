@@ -53,12 +53,16 @@ public class Player : Entity
 
     public void TakeDamage(int damage, Vector2 forceDirection)
     {
+        Debug.Log("TakeDamage function invoked for player. Damage - " + damage);
         if (_isPaused) return;
-
+        Debug.Log("Player health points before damage - " + CurrentHealthPoints);
         CurrentHealthPoints -= damage;
+        Debug.Log("Player health points after damage - " + CurrentHealthPoints);
+
         if (CurrentHealthPoints <= 0)
         {
             CurrentHealthPoints = 0;
+            Debug.Log("ProcessDeath function invoked for player");
             ProcessDeath();
         }
         else

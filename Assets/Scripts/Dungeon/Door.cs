@@ -77,6 +77,7 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_hasPlayed || other.CompareTag(_playerTag) == false || _isLocked) return;
+        Debug.Log("Doors opened!");
         _hasPlayed = true;
         Vector2 contactPoint = other.bounds.center;
         Vector2 center = _doorCollider.bounds.center;

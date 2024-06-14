@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8592602ddb064cba4c0bd51f3b209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WalkSpeed>k__BackingField: 6
+  <WalkSpeed>k__BackingField: 10
   damage: 1
   attackCooldown: 1
 --- !u!114 &7959832548209075573
@@ -79,9 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationAcceleration: 2
-  _rotationStrength: 10
+  _rotationStrength: 5
   _minRotationStrength: 1
-  _acceleration: 1
+  _acceleration: 1.5
 --- !u!212 &5715699479862650121
 SpriteRenderer:
   m_ObjectHideFlags: 0

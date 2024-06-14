@@ -23,10 +23,12 @@ public class DungeonGenerator : MonoBehaviour
     private Queue<GameObject> _roomsForGeneration = new Queue<GameObject>();
     private List<GameObject> _generatedRooms = new List<GameObject>();
     private List<GameObject> _dungeonRooms = new List<GameObject>();
+
+    private Player _player;
     private void Awake()
     {
+        _player = FindObjectOfType<Player>();
         GenerateDungeon();
-        _floorCount--;
     }
 
     public void RegenerateDungeon()
@@ -45,12 +47,14 @@ public class DungeonGenerator : MonoBehaviour
         _dungeonRooms.Clear();
         GenerateDungeon();
         var player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = Vector2.zero;
-        _floorCount--;
     }
 
-    public void GenerateDungeon()   
+    public void GenerateDungeon()
     {
+        _player.transform.position = Vector2.zero;
+        _player.GetComponent<Collider2D>().enabled = false;
+        Debug.Log("Generating dungeon");
+        _floorCount--;
         SetupSpawnRoom();
         int genericRoomsCount = Random.Range(_minRoomsCount, _maxRoomsCount + 1);
         while (genericRoomsCount > 0)
@@ -65,9 +69,10 @@ public class DungeonGenerator : MonoBehaviour
                 GenerateRoomRoots(_roomsForGeneration.Peek(), true);
                 _roomsForGeneration.Dequeue();
             }
-
+            _player.GetComponent<Collider2D>().enabled = true;
             genericRoomsCount--;
         }
+        Debug.Log("Dungeon generated. Remaining floors - " + _floorCount);
     }
 
     private void SetupSpawnRoom()

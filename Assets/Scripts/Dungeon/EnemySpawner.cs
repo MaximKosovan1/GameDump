@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_hasActivated || other.CompareTag(playerTag) == false) return;
+        Debug.Log("Player gets into enemy area");
         _hasActivated = true; 
         ActivateDoors(false);
         StartCoroutine(SpawnWaves());
@@ -32,8 +33,10 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < waves.Length; i++)
         {
+            Debug.Log("Wave started. Current wave - " + i);
             yield return StartCoroutine(SpawnEnemies(waves[i]));
             yield return new WaitUntil(() => _activeEnemies.Count == 0);
+            Debug.Log("Wave ended.");
         }
         ActivateDoors(true);
     }
@@ -56,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void HandleEnemyDeath(Enemy enemy)
     {
+        Debug.Log("HandleEnemyDeath function invoked for enemy - " + enemy.name);
         _activeEnemies.Remove(enemy);
     }
 

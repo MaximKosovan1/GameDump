@@ -16,6 +16,6 @@ public class DefaultMovement : MonoBehaviour, IMovable
     {
         Vector2 directionToPlayer = (_playerTransform.position - transform.position).normalized;
         Vector2 velocity = directionToPlayer * speed;
-        _rigidbody2D.MovePosition((Vector2)transform.position + velocity * Time.deltaTime);
+        _rigidbody2D.MovePosition((Vector2)transform.position + velocity * Time.fixedDeltaTime);
     }
 }

@@ -61,6 +61,7 @@ public class PlayerInteract : MonoBehaviour
         {
             if (interactable.IsInteractable)
             {
+                Debug.Log("Player interacted with - " + interactable);
                 interactable.Interact();
                 return;
             }

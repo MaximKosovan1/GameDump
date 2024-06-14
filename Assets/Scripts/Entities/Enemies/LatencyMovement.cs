@@ -9,8 +9,9 @@ public class LatencyMovement : MonoBehaviour, IMovable
     [SerializeField] private float _rotationStrength = 10f;
     [SerializeField] private float _minRotationStrength = 1f;
     [SerializeField] private float _acceleration = 1f;
+    [SerializeField] private float _separationRadius = 1.5f;
+    [SerializeField] private float _separationStrength = 1f;
 
-    // Velocity and rotation variables
     private Vector2 _currentVelocity = Vector2.zero;
     private float _currentRotationSpeed = 0f;
 
@@ -25,6 +26,7 @@ public class LatencyMovement : MonoBehaviour, IMovable
 
     public void Move(float movementSpeed)
     {
+        if (Time.timeScale == 0f) return;
         if (_playerTransform == null) return;
 
         Vector2 direction = (_playerTransform.position - transform.position).normalized;
@@ -39,9 +41,28 @@ public class LatencyMovement : MonoBehaviour, IMovable
 
         Vector2 desiredVelocity = direction * movementSpeed;
 
-        _currentVelocity = Vector2.Lerp(_currentVelocity, desiredVelocity, _acceleration * Time.deltaTime);
+        // Calculate separation force
+        Vector2 separationForce = Vector2.zero;
+        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, _separationRadius);
+        foreach (Collider2D collider in nearbyEnemies)
+        {
+            if (collider != GetComponent<Collider2D>() && collider.GetComponent<LatencyMovement>() != null)
+            {
+                Vector2 difference = (Vector2)transform.position - (Vector2)collider.transform.position;
+                separationForce += difference.normalized / difference.magnitude;
+            }
+        }
+        separationForce *= _separationStrength;
 
-        Vector2 newPosition = (Vector2)transform.position + _currentVelocity * Time.deltaTime;
+        _currentVelocity = Vector2.Lerp(_currentVelocity, desiredVelocity + separationForce, _acceleration * Time.fixedDeltaTime);
+
+        Vector2 newPosition = (Vector2)transform.position + _currentVelocity * Time.fixedDeltaTime;
         transform.position = newPosition;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _separationRadius);
     }
 }

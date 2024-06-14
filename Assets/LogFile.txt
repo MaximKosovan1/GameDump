@@ -1,0 +1,144 @@
+Log - [14.06.2024 11:55:40]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 11:55:53]Player gets into enemy area
+Log - [14.06.2024 11:55:53]Wave started. Current wave - 0
+Log - [14.06.2024 11:55:55]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 11:55:55]Player health points before damage - 3
+Log - [14.06.2024 11:55:55]Player health points after damage - 2
+Log - [14.06.2024 11:55:56]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 11:55:56]Player health points before damage - 2
+Log - [14.06.2024 11:55:56]Player health points after damage - 1
+Log - [14.06.2024 11:55:57]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 11:55:57]Player health points before damage - 1
+Log - [14.06.2024 11:55:57]Player health points after damage - 0
+Log - [14.06.2024 11:55:57]ProcessDeath function invoked for player
+Log - [14.06.2024 12:00:22]Doors opened!
+Log - [14.06.2024 12:00:22]Doors opened!
+Log - [14.06.2024 12:00:24]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:00:27]Doors opened!
+Log - [14.06.2024 12:00:27]Doors opened!
+Log - [14.06.2024 12:00:28]Player gets into enemy area
+Log - [14.06.2024 12:00:28]Wave started. Current wave - 0
+Log - [14.06.2024 12:00:36]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:00:36]Player health points before damage - 3
+Log - [14.06.2024 12:00:36]Player health points after damage - 2
+Log - [14.06.2024 12:00:50]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:00:50]Player health points before damage - 2
+Log - [14.06.2024 12:00:50]Player health points after damage - 1
+Log - [14.06.2024 12:00:51]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:00:51]Player health points before damage - 1
+Log - [14.06.2024 12:00:51]Player health points after damage - 0
+Log - [14.06.2024 12:00:51]ProcessDeath function invoked for player
+Log - [14.06.2024 12:04:19]Doors opened!
+Log - [14.06.2024 12:04:26]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:04:29]Doors opened!
+Log - [14.06.2024 12:04:32]Doors opened!
+Log - [14.06.2024 12:04:32]Doors opened!
+Log - [14.06.2024 12:04:33]Player gets into enemy area
+Log - [14.06.2024 12:04:33]Wave started. Current wave - 0
+Log - [14.06.2024 12:04:51]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:04:51]Player health points before damage - 3
+Log - [14.06.2024 12:04:51]Player health points after damage - 2
+Log - [14.06.2024 12:04:52]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:04:52]Player health points before damage - 2
+Log - [14.06.2024 12:04:52]Player health points after damage - 1
+Log - [14.06.2024 12:04:52]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:04:52]Player health points before damage - 1
+Log - [14.06.2024 12:04:52]Player health points after damage - 0
+Log - [14.06.2024 12:04:52]ProcessDeath function invoked for player
+Log - [14.06.2024 12:05:39]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:05:40]Doors opened!
+Log - [14.06.2024 12:05:40]Doors opened!
+Log - [14.06.2024 12:05:43]Doors opened!
+Log - [14.06.2024 12:05:43]Doors opened!
+Log - [14.06.2024 12:05:44]Player gets into enemy area
+Log - [14.06.2024 12:05:44]Wave started. Current wave - 0
+Log - [14.06.2024 12:06:02]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:06:02]Player health points before damage - 3
+Log - [14.06.2024 12:06:02]Player health points after damage - 2
+Log - [14.06.2024 12:06:09]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:06:09]Player health points before damage - 2
+Log - [14.06.2024 12:06:09]Player health points after damage - 1
+Log - [14.06.2024 12:06:42]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:06:43]Doors opened!
+Log - [14.06.2024 12:06:43]Doors opened!
+Log - [14.06.2024 12:06:45]Doors opened!
+Log - [14.06.2024 12:06:46]Doors opened!
+Log - [14.06.2024 12:06:48]Player interacted with - Chest (Chest)
+Log - [14.06.2024 12:06:50]Player interacted with - Magic Wand(Clone) (Weapon)
+Log - [14.06.2024 12:06:52]Doors opened!
+Log - [14.06.2024 12:06:52]Doors opened!
+Log - [14.06.2024 12:06:57]Doors opened!
+Log - [14.06.2024 12:06:57]Doors opened!
+Log - [14.06.2024 12:06:58]Player interacted with - Chest (Chest)
+Log - [14.06.2024 12:07:00]Player interacted with - Magic Wand(Clone) (Weapon)
+Log - [14.06.2024 12:07:02]Doors opened!
+Log - [14.06.2024 12:07:02]Doors opened!
+Log - [14.06.2024 12:07:06]Doors opened!
+Log - [14.06.2024 12:07:06]Doors opened!
+Log - [14.06.2024 12:07:07]Player gets into enemy area
+Log - [14.06.2024 12:07:07]Wave started. Current wave - 0
+Log - [14.06.2024 12:07:10]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:07:10]Player health points before damage - 3
+Log - [14.06.2024 12:07:10]Player health points after damage - 2
+Log - [14.06.2024 12:07:48]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:07:48]Player health points before damage - 2
+Log - [14.06.2024 12:07:48]Player health points after damage - 1
+Log - [14.06.2024 12:07:49]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:07:49]Player health points before damage - 1
+Log - [14.06.2024 12:07:49]Player health points after damage - 0
+Log - [14.06.2024 12:07:49]ProcessDeath function invoked for player
+Log - [14.06.2024 12:08:24]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:08:24]Doors opened!
+Log - [14.06.2024 12:08:25]Doors opened!
+Log - [14.06.2024 12:08:27]Doors opened!
+Log - [14.06.2024 12:08:27]Doors opened!
+Log - [14.06.2024 12:08:28]Player gets into enemy area
+Log - [14.06.2024 12:08:28]Wave started. Current wave - 0
+Log - [14.06.2024 12:08:58]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:08:58]Player health points before damage - 3
+Log - [14.06.2024 12:08:58]Player health points after damage - 2
+Log - [14.06.2024 12:09:00]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:09:00]Player health points before damage - 2
+Log - [14.06.2024 12:09:00]Player health points after damage - 1
+Log - [14.06.2024 12:09:06]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:09:06]Player health points before damage - 1
+Log - [14.06.2024 12:09:06]Player health points after damage - 0
+Log - [14.06.2024 12:09:06]ProcessDeath function invoked for player
+Log - [14.06.2024 12:22:06]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:22:06]Doors opened!
+Log - [14.06.2024 12:22:07]Doors opened!
+Log - [14.06.2024 12:22:09]Doors opened!
+Log - [14.06.2024 12:22:09]Doors opened!
+Log - [14.06.2024 12:22:11]Doors opened!
+Log - [14.06.2024 12:22:12]Doors opened!
+Log - [14.06.2024 12:22:13]Doors opened!
+Log - [14.06.2024 12:22:14]Doors opened!
+Log - [14.06.2024 12:22:14]Player gets into enemy area
+Log - [14.06.2024 12:22:14]Wave started. Current wave - 0
+Log - [14.06.2024 12:22:16]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:22:16]Player health points before damage - 3
+Log - [14.06.2024 12:22:16]Player health points after damage - 2
+Log - [14.06.2024 12:22:35]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:22:35]Player health points before damage - 2
+Log - [14.06.2024 12:22:35]Player health points after damage - 1
+Log - [14.06.2024 12:22:35]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:22:35]Player health points before damage - 1
+Log - [14.06.2024 12:22:35]Player health points after damage - 0
+Log - [14.06.2024 12:22:35]ProcessDeath function invoked for player
+Log - [14.06.2024 12:22:39]Player interacted with - Magic Wand (1) (Weapon)
+Log - [14.06.2024 12:22:39]Doors opened!
+Log - [14.06.2024 12:22:40]Doors opened!
+Log - [14.06.2024 12:22:42]Doors opened!
+Log - [14.06.2024 12:22:42]Doors opened!
+Log - [14.06.2024 12:22:43]Player gets into enemy area
+Log - [14.06.2024 12:22:43]Wave started. Current wave - 0
+Log - [14.06.2024 12:22:46]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:22:46]Player health points before damage - 3
+Log - [14.06.2024 12:22:46]Player health points after damage - 2
+Log - [14.06.2024 12:23:55]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:23:55]Player health points before damage - 2
+Log - [14.06.2024 12:23:55]Player health points after damage - 1
+Log - [14.06.2024 12:23:55]TakeDamage function invoked for player. Damage - 1
+Log - [14.06.2024 12:23:55]Player health points before damage - 1
+Log - [14.06.2024 12:23:55]Player health points after damage - 0
+Log - [14.06.2024 12:23:55]ProcessDeath function invoked for player

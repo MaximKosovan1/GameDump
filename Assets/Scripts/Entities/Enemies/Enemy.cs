@@ -12,7 +12,7 @@ public class Enemy : Entity
     private string _playerTag = "Player";
 
     [SerializeField] private int damage = 1;
-    [SerializeField] private float attackCooldown = 2.0f; // Время перезарядки атаки
+    [SerializeField] private float attackCooldown = 2.0f; 
 
     private float _lastAttackTime;
 
@@ -21,7 +21,7 @@ public class Enemy : Entity
         _enemyMovement = GetComponent<IMovable>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _flashEffect = GetComponent<SimpleFlash>();
-        _lastAttackTime = -attackCooldown; // Обеспечить, чтобы враг мог атаковать сразу после начала
+        _lastAttackTime = -attackCooldown; 
     }
 
     private void Update()
