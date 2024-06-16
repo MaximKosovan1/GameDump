@@ -47,8 +47,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsInteractable>k__BackingField: 1
+  _openSound: {fileID: 8300000, guid: 0de9f8062a5835444a29da6116691531, type: 3}
   _gameItems:
+  - {fileID: 9106394284718388641, guid: 8ae6a70e0e3326148b341b1fcd96a237, type: 3}
+  - {fileID: 7013063874322586930, guid: d4427e3973fe7e14aa83c76936b118a4, type: 3}
+  - {fileID: 982585457267711249, guid: 616c6c9a940f0ab45a5d670755fba1e5, type: 3}
+  - {fileID: 8270989351064648726, guid: 30d946929794515449583c32021b3cba, type: 3}
+  - {fileID: 3490576399394231249, guid: d512bf784b681754c882354dcdfbc42d, type: 3}
   - {fileID: 3490576399394231249, guid: 15dbfe38c396204409a76f7679f26ce0, type: 3}
+  - {fileID: 3490576399394231249, guid: 60e8bbf05ffbcf247917583564108801, type: 3}
+  - {fileID: 4614921308410108132, guid: f23acd94677701b44987c7e6893c0d06, type: 3}
 --- !u!212 &6252713266206046954
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +98,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1126677975, guid: 8746d36a86248bc43b297788028b5b1c, type: 3}
+  m_Sprite: {fileID: -1832056205, guid: 9987c268c8bfa7b40b463b543140b632, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -22,6 +23,11 @@ public class PlayerInteract : MonoBehaviour
         if (Player._isPaused) return;
 
         CheckForInteractable();
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.Player.Interact.performed -= OnInteract;
     }
 
     public void CheckForInteractable()

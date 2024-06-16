@@ -49,9 +49,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8592602ddb064cba4c0bd51f3b209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WalkSpeed>k__BackingField: 10
+  FireCooldownDecrease: 0
+  DamageIncrease: 1
+  <WalkSpeed>k__BackingField: 9
+  hp: 6
   damage: 1
   attackCooldown: 1
+  _takeDamage: {fileID: 8300000, guid: 5f850fa8eba5c3848883518959b04408, type: 3}
+  _healItem: {fileID: 3846763260760560481, guid: 0e2190dba368a0645b6aaf5130bcb475, type: 3}
+  _healSpawnChance: 0.1
 --- !u!114 &7959832548209075573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,10 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd32d095b380b044ca97f7a4261534e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationAcceleration: 2
-  _rotationStrength: 5
-  _minRotationStrength: 1
-  _acceleration: 1.5
+  _rotationStrength: 360
+  _maxMovementSpeed: 5
+  _accelerationTime: 0.65
+  _decelerationTime: 1.4
+  _repulsionForce: 1
 --- !u!212 &5715699479862650121
 SpriteRenderer:
   m_ObjectHideFlags: 0

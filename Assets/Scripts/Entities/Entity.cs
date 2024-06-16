@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Entity : MonoBehaviour
 {
-    [field: SerializeField] public int CurrentHealthPoints 
+    [FormerlySerializedAs("fireCooldownDecrease")] public float FireCooldownDecrease = 0f;
+    public float DamageIncrease = 1f;
+    public int CurrentHealthPoints 
     { 
         get => _currentHealthPoints; 
         set
@@ -13,7 +16,7 @@ public abstract class Entity : MonoBehaviour
             OnHealthChanged?.Invoke(_currentHealthPoints, MaxHealthPoints);
         }
     }
-
+    
     public int MaxHealthPoints 
     { 
         get => _maxHealthPoints; 

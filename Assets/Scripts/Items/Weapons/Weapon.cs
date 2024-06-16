@@ -8,13 +8,18 @@ public class Weapon : Item, IInteractable
     private GameObject _playerHand;
     private Player player;
 
+    [Header("Sound")] 
+    [SerializeField] private AudioClip _fireSound;
+
+    [SerializeField] private AudioClip _pickupSound;
+    
     [Header("Stats")]
     [SerializeField] private float _attackCooldown = 0.5f;
 
     [Header("Projectiles")]
     [SerializeField] private Transform _firePoint;
     [SerializeField] private Projectile[] _weaponProjectiles;
-
+    
     private bool _isCooldownEnded = true;
     private bool _isPickedUp = false;
 
@@ -32,7 +37,7 @@ public class Weapon : Item, IInteractable
         {
             _playerHand = FindHand(player.transform);
         }
-        ObjectMaterial = GetComponent<SpriteRenderer>().material;
+        ObjectMaterial = GetComponentInChildren<SpriteRenderer>().material;
         SetOutlineEffect(true);
     }
 
@@ -75,6 +80,8 @@ public class Weapon : Item, IInteractable
         if (!_isPickedUp) return;
         if (!_isCooldownEnded) return;
         var bullet = Instantiate(_weaponProjectiles[_currentProjectile], _firePoint.position, _firePoint.rotation);
+        bullet._damage = Mathf.RoundToInt(bullet._damage *  player.DamageIncrease);
+        SoundFXManager.Instance.PlaySoundFXClip(_fireSound, bullet.transform, 1f);
         CurrentProjectile++;
         StartCoroutine(IsCooldownEnded());
     }
@@ -82,7 +89,7 @@ public class Weapon : Item, IInteractable
     private IEnumerator IsCooldownEnded()
     {
         _isCooldownEnded = false;
-        yield return new WaitForSeconds(_attackCooldown);
+        yield return new WaitForSeconds(_attackCooldown - player.FireCooldownDecrease);
         _isCooldownEnded = true;
     }
 
@@ -141,7 +148,7 @@ public class Weapon : Item, IInteractable
         {
             DropCurrentWeapon();
         }
-
+        SoundFXManager.Instance.PlaySoundFXClip(_pickupSound, transform, 1f);
         AttachWeaponToHand();
     }
 

@@ -18,8 +18,9 @@ public class Logger : MonoBehaviour
         Application.logMessageReceived -= Log;
     }
 
-    private void Start()
+    private void Awake()
     {
+        Application.logMessageReceived += Log;
         filename = Application.dataPath + "/LogFile.txt";
     }
 

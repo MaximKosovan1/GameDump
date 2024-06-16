@@ -10,21 +10,25 @@ public class Enemy : Entity
     private IMovable _enemyMovement;
     private Rigidbody2D _rigidbody;
     private string _playerTag = "Player";
-
+    [SerializeField] private int hp = 2;
     [SerializeField] private int damage = 1;
-    [SerializeField] private float attackCooldown = 2.0f; 
-
+    [SerializeField] private float attackCooldown = 2.0f;
+    [SerializeField] private AudioClip _takeDamage;
+    [SerializeField] private GameObject _healItem;
+    [SerializeField] private float _healSpawnChance = 0.3f; 
     private float _lastAttackTime;
 
     private void Awake()
     {
+        MaxHealthPoints = hp;
+        CurrentHealthPoints = MaxHealthPoints;
         _enemyMovement = GetComponent<IMovable>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _flashEffect = GetComponent<SimpleFlash>();
         _lastAttackTime = -attackCooldown; 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _enemyMovement.Move(WalkSpeed);
     }
@@ -53,7 +57,7 @@ public class Enemy : Entity
     {
         CurrentHealthPoints -= damage;
         _flashEffect.Flash();
-
+        SoundFXManager.Instance.PlaySoundFXClip(_takeDamage, transform, 1f);
         if (CurrentHealthPoints <= 0)
         {
             CurrentHealthPoints = 0;
@@ -72,6 +76,10 @@ public class Enemy : Entity
 
     public void ProcessDeath()
     {
+        if (UnityEngine.Random.value <= _healSpawnChance)
+        {
+            Instantiate(_healItem, transform.position, Quaternion.identity);
+        }
         OnDeath?.Invoke(this);
         Destroy(gameObject);
     }

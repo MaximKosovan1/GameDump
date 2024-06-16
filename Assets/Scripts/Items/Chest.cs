@@ -8,7 +8,7 @@ public class Chest : MonoBehaviour, IInteractable
     [field: SerializeField] public bool IsInteractable { get; set; } = true;
     public Material ObjectMaterial { get; set; }
     private bool _hasInteracted  = false;
-    
+    [SerializeField] private AudioClip _openSound;
     [SerializeField] private Item[] _gameItems;
 
     private void Awake()
@@ -23,6 +23,7 @@ public class Chest : MonoBehaviour, IInteractable
         if (_hasInteracted) return;
         IsInteractable = false;
         _hasInteracted = true;
+        SoundFXManager.Instance.PlaySoundFXClip(_openSound, transform, 1f);
         Instantiate(GetRandomItem(), transform);
     }
 

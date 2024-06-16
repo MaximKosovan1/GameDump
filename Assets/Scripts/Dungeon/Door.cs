@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
         IsAvailable = _isAvailable;
     }
 
-    [field: SerializeField] public bool IsOpen
+    public bool IsOpen
     {
         get => _isOpen;
         set
@@ -37,7 +37,8 @@ public class Door : MonoBehaviour
                 Close();
             }
         }
-    }[field: SerializeField] public bool IsAvailable
+    }
+    public bool IsAvailable
     {
         get => _isAvailable;
         set

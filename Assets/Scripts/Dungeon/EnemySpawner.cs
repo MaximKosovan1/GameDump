@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Wave[] waves;
     [SerializeField] private Enemy[] enemyPool;
+    [SerializeField] private AudioClip _spawnSound;
     private Room _currentRoom;
     private List<Enemy> _activeEnemies = new List<Enemy>();
     private bool _hasActivated = false;
@@ -45,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var spawnPoint in wave.spawnPoints)
         {
+            SoundFXManager.Instance.PlaySoundFXClip(_spawnSound, transform, 1f);
             var enemy = Instantiate(GetRandomEnemy(), 
                 (Vector2)_currentRoom.transform.position + (Vector2)spawnPoint, Quaternion.identity);
             _activeEnemies.Add(enemy);

@@ -4751,6 +4751,7 @@ MonoBehaviour:
   enemyPool:
   - {fileID: 1668997066174954197, guid: 3045337c2e3d742429412a12d6ba312a, type: 3}
   - {fileID: 1668997066174954197, guid: b68309519f50e3e45b2858de814e67d0, type: 3}
+  _spawnSound: {fileID: 8300000, guid: d3867726fa66b984fb216c2a899302d4, type: 3}
 --- !u!114 &7459906788342492832
 MonoBehaviour:
   m_ObjectHideFlags: 0
